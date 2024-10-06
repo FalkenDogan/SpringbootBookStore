@@ -14,6 +14,7 @@ import com.bookStore.service.BookService;
 import com.bookStore.service.MyBookListService;
 
 @Controller
+
 public class BookController {
 
 	@Autowired
@@ -66,18 +67,18 @@ public class BookController {
 
 	@RequestMapping("/editBook/{id}")
 	public String editBook(@PathVariable("id") int id, Model model) {
-	
-		Book b=service.getBookById(id);		
-		model.addAttribute("book",b);
+
+		Book b = service.getBookById(id);
+		model.addAttribute("book", b);
 		return "bookEdit";
 
 	}
+
 	@RequestMapping("/deleteBook/{id}")
 	public String deleteBook(@PathVariable("id") int id) {
-		
+
 		service.deleteById(id);
 		return "redirect:/available_books";
 	}
 
-	
 }
